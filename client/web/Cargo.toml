@@ -1,0 +1,38 @@
+[package]
+name = "ogar-web"
+edition.workspace = true
+version.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+ogar-core = { path = "../core" }
+multiogarii = { path = "../..", default-features = false }
+serde_json.workspace = true
+bytemuck = { version = "1", features = ["derive"] }
+wasm-bindgen = "=0.2.129"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+web-sys = { version = "0.3", features = [
+  "Window", "Performance", "Document", "Element", "Navigator", "HtmlCanvasElement", "Url", "UrlSearchParams",
+  "ReferrerPolicy", "Request", "RequestCredentials", "RequestInit", "RequestMode", "Response", "Blob", "ImageBitmap", "ImageBitmapOptions", "PremultiplyAlpha", "ResizeQuality",
+  "FontFace", "FontFaceSet", "FontFaceSetLoadEvent", "EventTarget",
+  "CanvasRenderingContext2d", "CanvasGradient", "OffscreenCanvas", "OffscreenCanvasRenderingContext2d", "ImageData", "TextMetrics",
+  "WebGl2RenderingContext", "WebGlProgram", "WebGlShader", "WebGlBuffer", "WebGlVertexArrayObject",
+  "WebGlUniformLocation", "WebGlTexture", "WebGlContextAttributes",
+  "Gpu", "GpuAdapter", "GpuDevice", "GpuQueue", "GpuCanvasContext", "GpuCanvasConfiguration", "GpuCanvasAlphaMode",
+  "GpuTextureFormat", "GpuBuffer", "GpuBufferDescriptor", "GpuShaderModule", "GpuShaderModuleDescriptor",
+  "GpuRenderPipeline", "GpuRenderPipelineDescriptor", "GpuAutoLayoutMode", "GpuVertexState", "GpuFragmentState",
+  "GpuVertexBufferLayout", "GpuVertexAttribute", "GpuVertexFormat", "GpuVertexStepMode", "GpuColorTargetState",
+  "GpuBlendState", "GpuBlendComponent", "GpuBlendFactor", "GpuBlendOperation", "GpuPrimitiveState", "GpuPrimitiveTopology",
+  "GpuBindGroup", "GpuBindGroupDescriptor", "GpuBindGroupEntry", "GpuBindGroupLayout", "GpuBufferBinding",
+  "GpuTexture", "GpuTextureDescriptor", "GpuTextureDimension", "GpuTextureView",
+  "GpuTextureViewDescriptor", "GpuTextureViewDimension", "GpuSampler", "GpuSamplerDescriptor", "GpuFilterMode",
+  "GpuMipmapFilterMode", "GpuAddressMode", "GpuCommandEncoder", "GpuCommandBuffer", "GpuRenderPassEncoder",
+  "GpuRenderPassDescriptor", "GpuRenderPassColorAttachment", "GpuLoadOp", "GpuStoreOp", "GpuColorDict",
+  "GpuTexelCopyTextureInfo", "GpuTexelCopyBufferLayout", "GpuCopyExternalImageSourceInfo", "GpuCopyExternalImageDestInfo",
+  "GpuRequestAdapterOptions", "GpuPowerPreference", "GpuSupportedLimits", "GpuDeviceDescriptor",
+  "GpuDeviceLostInfo", "GpuDeviceLostReason", "GpuError", "GpuUncapturedErrorEvent",
+  "WebGlFramebuffer", "WebGlRenderbuffer", "ResizeObserver", "ResizeObserverEntry", "ResizeObserverSize", "Worker",
+] }

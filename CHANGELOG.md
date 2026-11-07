@@ -1,4 +1,12 @@
 # Changelog
+#### 2.0.0
+* Rewrote the server in Rust;
+* Added multibox (`serverMultibox`), with xingkong's unit packets;
+* Replaced the quad-tree with a dynamic grid;
+* Moved the config to `config.toml` and the data files to `data/`;
+* Fixed bugs of the JavaScript server;
+* Added a web client in `client/`.
+
 #### 1.6.3
 * Fixed safe spawning of virus, mother, and player cells
 

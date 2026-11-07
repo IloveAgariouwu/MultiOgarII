@@ -1,0 +1,154 @@
+# MultiOgarII configuration.
+# Every key is optional; a missing key keeps the default shown here.
+#
+# MultiOgarII uses cell size instead of cell mass.
+#     size = SQRT(mass * 100)
+# For example a start mass of 43 is size SQRT(43 * 100) = 65.57.
+
+# [LOGGING]
+# logVerbosity: Console log level (0=NONE, 1=FATAL, 2=ERROR, 3=WARN, 4=INFO, 5=DEBUG)
+logVerbosity = 4
+
+# [SERVER]
+# serverTimeout: Seconds to keep connection alive for non-responding client
+# serverMaxConnections: Maximum number of connections to the server (0 for no limit)
+# serverPort: Port used for incoming connections
+# serverBind: Network interface used for incoming connections (0.0.0.0 for all IPv4 interfaces)
+# serverTracker: 1 to show your server on the tracker http://ogar.mivabe.nl/master
+# serverGamemode: 0 = FFA, 1 = Teams, 2 = Experimental, 3 = Rainbow
+# serverBots: Number of player bots to spawn
+# serverViewBaseX/Y: Base view distance of players. High values may cause lag
+# serverMinScale: Minimum viewbox scale for a player (low values mean a large visible area for big cells)
+# serverSpectatorScale: Field of view for free roam spectators
+# serverStatsPort: Port for the stats server, 0 or negative to disable it
+# serverStatsUpdate: Update interval of server stats in seconds
+# mobilePhysics: Whether the server uses mobile agar.io physics
+# badWordFilter: 0 to disable the bad word filter in chat, nicknames are always filtered
+# serverRestart: Automatic restart period in minutes (0 to disable)
+# serverMultibox: 1 lets a client control two sets of cells and swap between them with packet 26 (or 44, xingkong's Tab)
+serverTimeout = 300
+serverMaxConnections = 500
+serverPort = 8080
+serverBind = "0.0.0.0"
+serverTracker = 0
+serverGamemode = 0
+serverBots = 0
+serverViewBaseX = 1920
+serverViewBaseY = 1080
+serverMinScale = 0.15
+serverSpectatorScale = 0.4
+serverStatsPort = 88
+serverStatsUpdate = 60
+mobilePhysics = 0
+badWordFilter = 1
+serverRestart = 0
+serverMultibox = 1
+
+# [CLIENT]
+# serverMaxLB: Maximum players displayed on the leaderboard
+# serverChat: 0 = no chat, 1 = chat
+# serverChatAscii: 1 to refuse non-ASCII chat
+# serverName: Server name
+# serverWelcome1/2: Welcome messages (empty to skip)
+# clientBind: Only allow connections from these origins or hosts, separated by ' - '
+#             (eg: http://agar.io - http://mywebsite.com)
+serverMaxLB = 10
+serverChat = 1
+serverChatAscii = 1
+separateChatForTeams = 0
+serverName = "MultiOgarII #1"
+serverWelcome1 = "Welcome to MultiOgarII!"
+serverWelcome2 = ""
+clientBind = ""
+
+# [ANTI-BOT]
+# serverIpLimit: Maximum connections from the same IP (0 for no limit)
+# serverMinionIgnoreTime: Minion detection disable time on server startup, seconds
+# serverMinionThreshold: Connections within serverMinionInterval not marked as minions
+# serverMinionInterval: Minion detection interval, milliseconds
+# serverScrambleLevel: 0 = none, 1 = lightweight, 2 = full (scrambles minimaps), 3 = high (no border)
+# playerBotGrow: 0 means cells above 625 mass cannot grow from players under 17 mass
+serverIpLimit = 4
+serverMinionIgnoreTime = 30
+serverMinionThreshold = 10
+serverMinionInterval = 1000
+serverScrambleLevel = 0
+playerBotGrow = 0
+
+# [BORDER]
+borderWidth = 14142.135623730952
+borderHeight = 14142.135623730952
+
+# [FOOD]
+foodMinSize = 10
+foodMaxSize = 20
+foodAmount = 700
+foodMassGrow = 1
+
+# [VIRUSES]
+# virusMaxPoppedSize: Maximum size a popped cell can have
+# virusEqualPopSize: 1 for popped cells of equal size
+# virusAmount: Viruses the game keeps at least
+# virusMaxAmount: Most viruses in game, a shot virus replaces the oldest (0 to disable feeding)
+# motherCellMaxMass: Maximum mass of a mother cell (0 for no limit)
+# virusVelocity: Velocity of moving viruses
+# virusMaxCells: Maximum cells a player can have from virus splits (0 for playerMaxCells)
+virusMinSize = 100
+virusMaxSize = 141.421356237
+virusMaxPoppedSize = 60
+virusEqualPopSize = 0
+virusAmount = 50
+virusMaxAmount = 100
+motherCellMaxMass = 0
+virusVelocity = 780
+virusMaxCells = 0
+
+# [EJECTED MASS]
+# ejectSizeLoss: Size subtracted from the player cell
+# ejectCooldown: Ticks until a player can eject again (1 tick = 40 ms)
+# ejectSpawnPercent: Chance to spawn from ejected mass, 0.5 = 50%
+# ejectVirus: 1 to eject viruses instead of mass
+ejectSize = 36.06
+ejectSizeLoss = 42.43
+ejectCooldown = 3
+ejectSpawnPercent = 0.5
+ejectVirus = 0
+ejectVelocity = 780
+
+# [PLAYERS]
+# playerMinSize: Minimum size a player cell can decay to
+# playerMaxSize: Maximum size before auto-splitting
+# playerMinSplitSize / playerMinEjectSize: Minimum size to split / eject
+# playerMaxCells: Maximum cells per controlled unit
+# playerSpeed: Speed multiplier
+# playerRecombineTime: Base seconds before a cell can recombine
+# playerDecayRate: Size lost per second
+# playerDecayCap: Mass above which the decay rate is multiplied by 10 (0 to disable)
+# playerDisconnectTime: Seconds a disconnected player's cells stay in the world.
+#                       Zero or negative removes them immediately.
+playerMinSize = 31.6227766017
+playerMaxSize = 1500
+playerMinSplitSize = 59.16079783
+playerMinEjectSize = 59.16079783
+playerStartSize = 31.6227766017
+playerMaxCells = 16
+playerSpeed = 1
+playerDecayRate = 0.002
+playerDecayCap = 0
+playerRecombineTime = 30
+playerMaxNickLength = 15
+playerDisconnectTime = -1
+splitVelocity = 780
+
+# [MINIONS]
+# minionMaxStartSize: Set higher than minionStartSize for a random start size
+# minionCollideTeam: Whether minions collide with their team in Teams (0 = no, 1 = yes)
+# serverMinions: Minions each player gets once connected
+# defaultName: Default minion name (put <r> before the name for random skins)
+# minionsOnLeaderboard: 1 to show minions on the leaderboard
+minionStartSize = 31.6227766017
+minionMaxStartSize = 31.6227766017
+minionCollideTeam = 0
+serverMinions = 0
+defaultName = "minion"
+minionsOnLeaderboard = 0
