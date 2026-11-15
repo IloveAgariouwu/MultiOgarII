@@ -1,4 +1,22 @@
 # Changelog
+#### Unreleased
+* Added the compact protocol (see `PROTOCOL.md`), which the web client asks for;
+* Food, ejected cells and viruses are resent to clients only when they moved or resized, not every tick;
+* A connection that has not taken the previous update gets none until it has, instead of queueing stale ones;
+* Connections whose writes make no progress for 15 seconds are dropped;
+* Handshakes are limited to 256 at once and 8 per address, and time out after 10 seconds;
+* On Linux, `TCP_NOTSENT_LOWAT` keeps stale data out of the kernel's send buffer;
+* Bots no longer sort their view, and `serverBotUpdateInterval` lets them think less often;
+* Client views are updated on one thread; rayon was removed.
+
+#### 2.0.0
+* Rewrote the server in Rust;
+* Added multibox (`serverMultibox`), with xingkong's unit packets;
+* Replaced the quad-tree with a dynamic grid;
+* Moved the config to `config.toml` and the data files to `data/`;
+* Fixed bugs of the JavaScript server;
+* Added a web client in `client/`.
+
 #### 1.6.3
 * Fixed safe spawning of virus, mother, and player cells
 

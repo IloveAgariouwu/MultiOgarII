@@ -1,0 +1,410 @@
+@property --hud-box-w {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+}
+
+:root {
+    font-size: clamp(14px, 1.25vh, 24px);
+    --bg: #141414;
+    --fg: #f2f2f2;
+    --mute: color-mix(in srgb, var(--fg) 65%, var(--bg));
+    --dim: color-mix(in srgb, var(--fg) 40%, var(--bg));
+    --rule: color-mix(in srgb, var(--fg) 18%, transparent);
+    --rule-strong: color-mix(in srgb, var(--fg) 36%, transparent);
+    --field: color-mix(in srgb, var(--bg) 42%, transparent);
+    --btn-line-back: var(--field);
+    --field-focus: color-mix(in srgb, var(--bg) 70%, transparent);
+    --panel: color-mix(in srgb, var(--bg) 96%, transparent);
+    --accent: var(--fg);
+    --accent-hover: color-mix(in srgb, var(--accent) 82%, var(--bg));
+    --on-accent: var(--bg);
+    --ok: #3fd17a;
+    --danger: #d9534f;
+    --well: color-mix(in srgb, var(--fg) 10%, var(--bg));
+    --fill-accent: var(--accent);
+    --fill-accent-hover: var(--accent-hover);
+    --backdrop: color-mix(in srgb, var(--bg) 55%, transparent);
+    --sheen: none;
+    --row-hover: color-mix(in srgb, var(--bg) 45%, transparent);
+    --box-back: color-mix(in srgb, var(--bg) 45%, transparent);
+    --box-line: inset 0 0 0 1px var(--rule);
+    --fill-bar: linear-gradient(var(--accent), var(--accent));
+    --seg-on: color-mix(in srgb, var(--accent) 18%, transparent);
+    --on-line: var(--accent);
+    --on-seg: var(--fg);
+    --switch-on: transparent;
+    --knob-on: var(--accent);
+    --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --popover-time: 0.16s;
+    --switch-time: 0.18s;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.75), 0 0 14px rgba(0, 0, 0, 0.45);
+    --font-base:
+        "Overpass", "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", "Noto Sans CJK TC", Meiryo, sans-serif;
+    --font: var(--font-base);
+    --text: 1;
+    --hud-w: 17rem;
+    --scrim-x: 0.7rem;
+    --scrim-y: 0.5rem;
+    --hud-box-w: calc(var(--hud-w) + 2 * var(--scrim-x));
+    --icon-xs: 0.8rem;
+    --icon-sm: 1rem;
+    --icon: 1.3rem;
+    --hit: 2rem;
+    --z-touch: 4;
+    --z-hud: 5;
+    --z-chat: 10;
+    --z-guide: 10;
+    --z-bar: 40;
+}
+
+* {
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule) transparent;
+}
+
+html,
+:root,
+.hud-slot {
+    --fs-xs: calc(0.78rem * var(--text));
+    --fs-sm: calc(0.9rem * var(--text));
+    --fs-md: calc(1rem * var(--text));
+    --fs-lg: calc(1.2rem * var(--text));
+    --fs-2xl: calc(1.8rem * var(--text));
+    --fs-3xl: calc(3rem * var(--text));
+}
+
+.hud-slot {
+    font-size: var(--fs-md);
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--fg);
+    font: 500 var(--fs-md)/1.4 var(--font);
+    user-select: none;
+}
+
+html.mobile,
+html.mobile body {
+    overscroll-behavior: none;
+    touch-action: manipulation;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+    letter-spacing: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+.f {
+    width: 100%;
+    min-width: 0;
+    padding: 0.45rem 0.6rem;
+    border: 1px solid var(--rule);
+    background: var(--field);
+    font-size: var(--fs-md);
+}
+
+.f:hover {
+    border-color: var(--rule-strong);
+}
+
+.f:focus {
+    outline: 0;
+    border-color: var(--accent);
+    background: var(--field-focus);
+}
+
+html.mobile .f {
+    border: 0;
+    box-shadow: inset 0 -1px var(--rule);
+}
+
+html.mobile .f:focus {
+    box-shadow: inset 0 -2px var(--accent);
+}
+
+.f::placeholder {
+    color: var(--dim);
+}
+
+.tabsw {
+    padding: 0 0 0.15rem;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    background: none;
+    color: var(--mute);
+    text-shadow: var(--shadow);
+}
+
+.tabsw[aria-pressed="true"] {
+    color: var(--fg);
+    border-bottom-color: var(--accent);
+}
+
+.icon {
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--mute);
+}
+
+.icon:hover {
+    color: var(--fg);
+}
+
+.icon svg {
+    width: var(--icon);
+    height: var(--icon);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
+}
+
+.btn-accent {
+    border: 0;
+    background: var(--fill-accent);
+    color: var(--on-accent);
+    font-weight: 700;
+    transition:
+        background-color 0.15s,
+        transform 0.1s;
+}
+
+.btn-accent:hover {
+    background: var(--fill-accent-hover);
+}
+
+.btn-line {
+    border: 1px solid var(--rule);
+    background: var(--btn-line-back);
+    background-image: var(--sheen);
+    text-shadow: var(--shadow);
+    transition:
+        border-color 0.15s,
+        transform 0.1s;
+}
+
+.btn-line:hover {
+    border-color: var(--fg);
+}
+
+.btn-accent:active,
+.btn-line:active {
+    transform: translateY(1px);
+}
+
+input.slider {
+    height: 1.3rem;
+    margin: 0;
+    appearance: none;
+    background: none;
+    cursor: pointer;
+}
+
+input.slider::-webkit-slider-runnable-track {
+    height: 0.25rem;
+    background:
+        var(--fill-bar) no-repeat 0 0 / var(--p) 100%,
+        var(--rule);
+}
+
+input.slider::-moz-range-track {
+    height: 0.25rem;
+    background:
+        var(--fill-bar) no-repeat 0 0 / var(--p) 100%,
+        var(--rule);
+}
+
+input.slider::-webkit-slider-thumb {
+    width: 0.6rem;
+    height: 1.05rem;
+    margin-top: -0.4rem;
+    border: 0;
+    appearance: none;
+    background: var(--mute);
+    transition:
+        transform 0.12s ease-out,
+        background-color 0.15s ease-out;
+}
+
+input.slider::-moz-range-thumb {
+    width: 0.6rem;
+    height: 1.05rem;
+    border: 0;
+    border-radius: 0;
+    background: var(--mute);
+    transition:
+        transform 0.12s ease-out,
+        background-color 0.15s ease-out;
+}
+
+input.slider:hover::-webkit-slider-thumb {
+    background: var(--fg);
+    transform: scaleY(1.15);
+}
+
+input.slider:hover::-moz-range-thumb {
+    background: var(--fg);
+    transform: scaleY(1.15);
+}
+
+input.slider:active::-webkit-slider-thumb {
+    background: var(--fg);
+    transform: scale(1.35, 1.15);
+}
+
+input.slider:active::-moz-range-thumb {
+    background: var(--fg);
+    transform: scale(1.35, 1.15);
+}
+
+.stretch {
+    padding: 0;
+    border: 0;
+    background: none;
+    text-align: inherit;
+    text-shadow: inherit;
+}
+
+.stretch::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.stretch:focus-visible {
+    outline: 0;
+}
+
+:has(> .stretch:focus-visible) {
+    outline: 1px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.hud-edit {
+    outline: 1px dashed var(--accent);
+    outline-offset: 4px;
+    cursor: move;
+}
+
+.hud-edit * {
+    pointer-events: none;
+}
+
+.hud-off {
+    opacity: 0.35;
+}
+
+.hud-edit .hud-grip {
+    position: absolute;
+    right: -0.35rem;
+    bottom: -0.35rem;
+    z-index: 2;
+    width: 0.7rem;
+    height: 0.7rem;
+    border: 1px solid var(--accent);
+    background: var(--panel);
+    pointer-events: auto;
+    cursor: nwse-resize;
+}
+
+.hud-edit.hud-picked {
+    outline-style: solid;
+}
+
+.hud-guide {
+    position: fixed;
+    z-index: var(--z-guide);
+    background: var(--accent);
+    pointer-events: none;
+}
+
+.hud-guide.x {
+    top: 0;
+    bottom: 0;
+    width: 1px;
+}
+
+.hud-guide.y {
+    left: 0;
+    right: 0;
+    height: 1px;
+}
+
+.hud-edit .hud-eye {
+    position: absolute;
+    top: -1.6rem;
+    right: 0;
+    z-index: 2;
+    padding: 0.1rem 0.5rem;
+    border: 1px solid var(--rule-strong);
+    background: var(--panel);
+    color: var(--fg);
+    font-size: var(--fs-xs);
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.scrim {
+    position: relative;
+    isolation: isolate;
+}
+
+.scrim::before {
+    content: "";
+    position: absolute;
+    inset: calc(-1 * var(--scrim-y)) calc(-1 * var(--scrim-x));
+    z-index: -1;
+    background: var(--scrim, var(--lb-back));
+    background-image: var(--sheen);
+    pointer-events: none;
+}
+
+.well {
+    border-radius: 50%;
+    background: var(--well);
+}
+
+span.c,
+span.well {
+    display: inline-block;
+}
+
+.avatar-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}

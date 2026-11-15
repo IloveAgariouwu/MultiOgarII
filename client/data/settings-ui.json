@@ -1,0 +1,266 @@
+{
+  "categories": [
+    {
+      "id": "hud",
+      "title": "setCat_hud",
+      "preview": "hud",
+      "items": [
+        "ShowUI", "ShowLeaderboard", "ShowSelfPanel", "ShowClientStatus", "ShowServerStatus",
+        "ShowCoord", "HideMenuAfterDeath",
+        { "kind": "font", "key": "UiFont", "label": "lbtUiFont" }
+      ]
+    },
+    {
+      "id": "map",
+      "title": "setCat_map",
+      "preview": "map",
+      "items": [
+        "ShowMap", "ShowMapName", "MiniMapShowSelfName",
+        { "kind": "range", "key": "MiniMapNameZoom", "label": "MiniMapNameZoom", "min": 50, "max": 200, "step": 5, "unit": "%" },
+        "MiniMapNameTeamColor",
+        { "kind": "range", "key": "MiniMapDrawMode", "label": "MiniMapDrawMode", "min": 0, "max": 1, "step": 1, "show": "pick:miniMapDraw" },
+        "MiniMapOpaque", "MiniMapShowCoord", "MiniMapShowView", "MiniMapShowCrosshair", "MiniMapGlowingBorder", "MiniMapAniBorder",
+        { "kind": "range", "key": "MiniMapAnimInterval", "label": "MiniMapAnimInterval", "min": 0, "max": 1000, "step": 1 },
+        { "kind": "range", "key": "MiniMapBorderSize", "label": "MiniMapBorderSize", "min": 0, "max": 200, "step": 1, "unit": "%" }
+      ]
+    },
+    {
+      "id": "chat",
+      "title": "setCat_chat",
+      "preview": "chat",
+      "items": ["ShowChatBox", "ChatMentionNotify",
+        { "kind": "range", "key": "ChatMaxMessages", "label": "ChatMaxMessages", "min": 20, "max": 300, "step": 10 },
+        { "kind": "text", "key": "QuickChat1", "label": "QuickChat1", "maxLength": 80, "placeholder": "qcDefault1" },
+        { "kind": "text", "key": "QuickChat2", "label": "QuickChat2", "maxLength": 80, "placeholder": "qcDefault2" },
+        { "kind": "text", "key": "QuickChat3", "label": "QuickChat3", "maxLength": 80, "placeholder": "qcDefault3" },
+        { "kind": "text", "key": "QuickChat4", "label": "QuickChat4", "maxLength": 80, "placeholder": "qcDefault4" },
+        { "kind": "text", "key": "QuickChat5", "label": "QuickChat5", "maxLength": 80, "placeholder": "qcDefault5" },
+        { "kind": "text", "key": "QuickChat6", "label": "QuickChat6", "maxLength": 80, "placeholder": "qcDefault6" },
+        { "kind": "text", "key": "QuickChat7", "label": "QuickChat7", "maxLength": 80, "placeholder": "qcDefault7" },
+        { "kind": "text", "key": "QuickChat8", "label": "QuickChat8", "maxLength": 80, "placeholder": "qcDefault8" },
+        { "kind": "text", "key": "QuickChat9", "label": "QuickChat9", "maxLength": 80 },
+        { "kind": "text", "key": "QuickChat10", "label": "QuickChat10", "maxLength": 80 }]
+    },
+    {
+      "id": "cell",
+      "title": "lbtSecCell",
+      "preview": "scene",
+      "items": [
+        "ShowName", "ShowSelfName", "ShowCircularName",
+        { "kind": "font", "key": "CellFont", "label": "lbtCellFont" },
+        { "kind": "range", "key": "nameTextZoom", "label": "lbtNameTextZoom", "min": 50, "max": 150, "step": 1, "unit": "%" },
+        "ShowMass", "SimplifiedMass",
+        { "kind": "range", "key": "massTextZoom", "label": "lbtMassTextZoom", "min": 50, "max": 150, "step": 1, "unit": "%" },
+        { "kind": "range", "key": "MinTextSize", "label": "lbtMinTextSize", "min": 1, "max": 24, "step": 1, "unit": "px" },
+        { "kind": "range", "key": "PlayerLabelsAlpha", "label": "lbtPlayerLabelsAlpha", "min": 0.25, "max": 1, "step": 0.01, "show": "percent" },
+        { "kind": "group", "key": "ShowSkin", "keys": ["ShowSelfSkin", "ShowEnemySkin"], "labels": ["lbtSkinSelf", "lbtSkinEnemy"] }, "UseExternalSkin",
+        "ShowClSelfCell", "invisibleSelfCell", "ShowCellRing", "CellShadow",
+        { "kind": "range", "key": "CellShadowIntensity", "label": "lbtCellShadowIntensity", "min": 10, "max": 100, "step": 5 },
+        "TogglePlayerTransparentCells",
+        { "kind": "range", "key": "PlayerCellsAlpha", "label": "lbtPlayerCellsAlpha", "min": 0, "max": 1, "step": 0.01, "show": "percent" },
+        "ShowFood", "ShowPellet", "SinglePelletsColor",
+        { "kind": "range", "key": "PelletCellsAlpha", "label": "lbtPelletCellsAlpha", "min": 0.25, "max": 1, "step": 0.01, "show": "percent" },
+        "SimpleVirus"
+      ]
+    },
+    {
+      "id": "marker",
+      "title": "setCat_marker",
+      "preview": "scene",
+      "items": [
+        "ShowEnemyHint", { "kind": "group", "key": "ShowMassMarker", "keys": ["MarkerExtend", "MarkerLight"], "labels": ["lbtMarkerFine", "lbtMarkerLite"] },
+        { "kind": "range", "key": "MarkerAlpha", "label": "lbtMarkerOpacity", "min": 0, "max": 1, "step": 0.01, "show": "percent" },
+        { "kind": "range", "key": "MarkerThickness", "label": "lbtMarkerThickness", "min": 0, "max": 20, "step": 0.1, "unit": "px" },
+        "ShowSplitIndicator", "ShowSplitPrediction", "ShowHalfSplit", "ShowEatLimitMarker", "ShowAutoSplitAlert",
+        { "kind": "group", "label": "lbtOrderRing", "keys": ["ShowOrderRing", "ShowOrderRing2", "ShowOrderRing3"], "labels": ["lbtType1", "lbtType2", "lbtType3"], "exclusive": ["ShowOrderRing", "ShowOrderRing2"] },
+        { "kind": "range", "key": "OverlapMarker", "label": "lbtOverlapMarker", "min": 0, "max": 2, "step": 1, "show": "pick:overlapMarker" },
+        "OverlapMarkerMask",
+        { "kind": "range", "key": "massOverlapSize", "label": "lbtMassOverlapSize", "min": 0, "max": 22500, "step": 500 },
+        "VirusSplitHint", "VirusRangeHint",
+        { "kind": "range", "key": "CursorStyle", "label": "lbtCursorStyle", "min": 0, "max": 2, "step": 1, "show": "pick:cursorStyle" },
+        { "kind": "text", "key": "CursorImageUri", "label": "lbtCursorImage", "placeholder": "cursorImagePlaceholder", "hint": "cursorImageHint" },
+        "ShowCursorLine",
+        { "kind": "range", "key": "CursorLineThickness", "label": "lbtCursorLineThickness", "min": 1, "max": 30, "step": 1 },
+        "ShowUnitArrow", "ShowCellDirectionMarker"
+      ]
+    },
+    {
+      "id": "render",
+      "title": "lbtSecRender",
+      "preview": "scene",
+      "items": [
+        { "kind": "range", "key": "QualityPreset", "label": "lbtQualityPreset", "min": 0, "max": 3, "step": 1, "show": "level4" },
+        { "kind": "range", "key": "RenderQuality", "label": "lbtRenderQuality", "min": 0, "max": 2, "step": 1, "show": "level3" },
+        { "kind": "range", "key": "RenderScale", "label": "lbtRenderScale", "min": 0, "max": 3, "step": 1, "show": "pick:renderScale", "unit": "%" },
+        { "kind": "range", "key": "FrameRateOption", "label": "lbtFrameRate", "min": 0, "max": 4, "step": 1, "show": "pick:frameRateText", "unit": "%" },
+        { "kind": "range", "key": "GpuCellRenderer", "label": "lbtRenderer", "min": 0, "max": 3, "step": 1, "show": "pick:renderer" },
+        "SmoothSkin",
+        "GlowingCells", "JellyCells", "AniVirus", "AniHalfSplit",
+        "GlowingBorder", "AniBorder",
+        { "kind": "range", "key": "animInterval", "label": "lbtAnimInterval", "min": 0, "max": 1000, "step": 1 },
+        { "kind": "range", "key": "fieldBorderSize", "label": "lbtFieldBorderSize", "min": 0, "max": 200, "step": 1, "unit": "%" },
+        "ShowfieldBackImage",
+        { "kind": "text", "key": "fieldBackImageUri", "label": "setBackImage" },
+        { "kind": "range", "key": "fieldBackImageAlpha", "label": "backgroundAlpha", "min": 0, "max": 1, "step": 0.01, "show": "percent" }
+      ]
+    },
+    {
+      "id": "camera",
+      "title": "setCat_camera",
+      "preview": "none",
+      "items": [
+        { "kind": "range", "key": "InterpolationType", "label": "lbtInterpolationType", "min": 0, "max": 5, "step": 1, "show": "pick:interpolationType" },
+        { "kind": "range", "key": "InterpolationSpeed", "label": "lbtInterpolationResponce", "min": -0.5, "max": 1, "step": 0.01, "show": "interpolationSpeed", "when": { "key": "InterpolationType", "lt": 3 } },
+        { "kind": "range", "key": "TimedAnimation", "label": "lbtTimedAnimation", "min": 0, "max": 500, "step": 5, "unit": "ms", "when": { "key": "InterpolationType", "eq": 4 } },
+        { "kind": "range", "key": "SoftenAnimation", "label": "lbtSoftenAnimation", "min": 80, "max": 300, "step": 10, "show": "softenAnimation", "unit": "%", "when": { "key": "InterpolationType", "eq": 5 } },
+        { "kind": "range", "key": "RenderingTimeOffset", "label": "lbtRenderingTimeOffset", "min": 0, "max": 1, "step": 0.01 },
+        { "kind": "range", "key": "CameraMode", "label": "lbtCameraMode", "min": 0, "max": 2, "step": 1, "show": "pick:cameraMode" },
+        { "kind": "range", "key": "CameraMovementSpeed", "label": "lbtCameraMovementSpeed", "min": -25, "max": 75, "step": 1, "when": { "key": "CameraMode", "eq": 0 } },
+        { "kind": "range", "key": "UnitCameraSpeed", "label": "lbtUnitCameraSpeed", "min": 1, "max": 100, "step": 1, "unit": "%", "when": { "key": "CameraMode", "eq": 1 } },
+        { "kind": "range", "key": "CellCameraSpeed", "label": "lbtCellCameraSpeed", "min": 1, "max": 30, "step": 1, "when": { "key": "CameraMode", "eq": 2 } },
+        { "kind": "range", "key": "CameraZoomSpeed", "label": "lbtCameraZoomSpeed", "min": 1, "max": 150, "step": 1, "unit": "%" }
+      ]
+    },
+    {
+      "id": "replay",
+      "title": "setCat_replay",
+      "preview": "none",
+      "items": [
+        "ShowReplayBar", "ReplayBuffer", "ResetReplayWhenChangeServer", "AffectZoomingOnReplay",
+        { "kind": "range", "key": "QuickCaptureTimeOption", "label": "lbtCaptureDuration", "min": 0, "max": 5, "step": 1, "show": "pick:quickCaptureTime", "unit": "sec" },
+        { "kind": "range", "key": "VideoExportHeight", "label": "lbtVideoHeight", "min": 0, "max": 3, "step": 1, "show": "pick:videoHeight", "unit": "p" },
+        { "kind": "range", "key": "VideoExportFps", "label": "lbtVideoFps", "min": 0, "max": 2, "step": 1, "show": "pick:videoFps", "unit": " fps" },
+        { "kind": "range", "key": "VideoExportQuality", "label": "lbtVideoQuality", "min": 0, "max": 4, "step": 1, "show": "pick:videoQuality" }
+      ]
+    },
+    {
+      "id": "net",
+      "title": "setCat_net",
+      "preview": "none",
+      "items": [
+        "AutoReconnect",
+        { "kind": "range", "key": "ReconnectInterval", "label": "lbtReconnectInterval", "min": 1, "max": 60, "step": 1, "unit": "sec" },
+        "ReconnectDoubling",
+        { "kind": "range", "key": "ReconnectTries", "label": "lbtReconnectTries", "min": 0, "max": 6, "step": 1, "show": "pick:reconnectTries" }
+      ]
+    },
+    {
+      "id": "hotkeys",
+      "title": "setCat_hotkeys",
+      "preview": "none",
+      "items": []
+    },
+    { "id": "colors", "title": "setCat_colors", "preview": "none", "items": [] },
+    {
+      "id": "touch",
+      "title": "mTouchSection",
+      "preview": "none",
+      "items": [
+        "TouchFollowFinger", "TouchLeftHanded", "TouchVibrate",
+        { "kind": "range", "key": "TouchButtonSize", "label": "TouchButtonSize", "min": 54, "max": 96, "step": 2 },
+        { "kind": "range", "key": "TouchButtonAlpha", "label": "TouchButtonAlpha", "min": 25, "max": 95, "step": 1 },
+        { "kind": "slot", "key": "TouchSlot1" },
+        { "kind": "slot", "key": "TouchSlot2" },
+        { "kind": "slot", "key": "TouchSlot3" },
+        { "kind": "slot", "key": "TouchSlot4" }
+      ],
+      "shared": ["clTouchButton"]
+    },
+    {
+      "id": "data",
+      "title": "setCat_data",
+      "preview": "none",
+      "items": [
+        { "kind": "flag", "key": "ogarSettings", "label": "setExport_settings" },
+        { "kind": "flag", "key": "ogarProfiles", "label": "setExport_profiles" },
+        { "kind": "flag", "key": "ogarThemes", "label": "setExport_colors" },
+        { "kind": "flag", "key": "ogarLanguagePacks", "label": "setExport_languages" }
+      ]
+    }
+  ],
+  "pickSources": {
+    "videoHeight": [720, 1080, 1440, 2160],
+    "videoFps": [30, 60, 120],
+    "videoQuality": ["lbtQualityVeryLow", "lbtLevelLow", "lbtLevelMid", "lbtLevelHigh", "lbtQualityVeryHigh"],
+    "quickCaptureTime": [10, 20, 30, 40, 50, 60],
+    "overlapMarker": ["pickOff", "pickAuto", "pickOn"],
+    "miniMapDraw": ["miniMapDrawTotal", "miniMapDrawCells"],
+    "renderScale": [50, 75, 100, 150],
+    "frameRateText": [16, 25, 33, 50, 100],
+    "interpolationType": ["pickInterpFast", "pickInterpLinear", "pickInterpPreceding", "pickInterpChase", "pickInterpTimed", "pickInterpSoftened"],
+    "cameraMode": ["pickCameraDefault", "pickCameraUnits", "pickCameraCells"],
+    "renderer": ["pickAuto", "WebGL2", "WebGPU", "Canvas2D"],
+    "cursorStyle": ["pickCursorArrow", "pickCursorCross", "pickCursorImage"],
+    "reconnectTries": [1, 2, 3, 5, 10, 20, "pickUnlimited"]
+  },
+  "qualityPresets": [
+    { "RenderScale": 0, "RenderQuality": 0 },
+    { "RenderScale": 2, "RenderQuality": 1 },
+    { "RenderScale": 3, "RenderQuality": 2 }
+  ],
+  "reloadRequired": ["GpuCellRenderer"],
+  "uiActions": ["hkQuickReplayCapture", "hkToggleReplayRecording", "hkPlaybackReplay", "hkReplayPlayPause", "hkReplaySeekLeft", "hkReplaySeekRight", "hkQuickChat1", "hkQuickChat2", "hkQuickChat3", "hkQuickChat4", "hkQuickChat5", "hkQuickChat6", "hkQuickChat7", "hkQuickChat8", "hkQuickChat9", "hkQuickChat10"],
+  "browserFeatures": {
+    "TouchFollowFinger": "touch", "TouchLeftHanded": "touch", "TouchVibrate": "touch", "TouchButtonSize": "touch", "TouchButtonAlpha": "touch",
+    "TouchSlot1": "touch", "TouchSlot2": "touch", "TouchSlot3": "touch", "TouchSlot4": "touch"
+  },
+  "requires": { "CellShadowIntensity": "CellShadow", "ReconnectInterval": "AutoReconnect", "ReconnectDoubling": "AutoReconnect", "ReconnectTries": "AutoReconnect" },
+  "previews": {
+    "VirusSplitHint": "virus", "VirusRangeHint": "virus", "SimpleVirus": "virus", "AniVirus": "virus", "ShowAutoSplitAlert": "autosplit", "ShowFood": "scene", "ShowMassMarker": "marker", "MarkerAlpha": "marker", "MarkerThickness": "marker", "MarkerExtend": "marker", "MarkerLight": "marker", "ChatMentionNotify": "mention", "ShowUI": "none", "ShowReplayBar": "replay", "ShowLeaderboard": "rail", "ShowSelfPanel": "self", "ShowClientStatus": "client", "ShowServerStatus": "server",
+    "JellyCells": "jelly",
+    "HideMenuAfterDeath": "none", "UiFont": "none", "ChatMaxMessages": "none", 
+    "QuickChat1": "none", "QuickChat2": "none", "QuickChat3": "none", "QuickChat4": "none", "QuickChat5": "none", "QuickChat6": "none", "QuickChat7": "none", "QuickChat8": "none", "QuickChat9": "none", "QuickChat10": "none",
+    "FrameRateOption": "none", "GpuCellRenderer": "none",
+    "GlowingBorder": "border", "AniBorder": "border", "fieldBorderSize": "border", "ShowfieldBackImage": "field", "fieldBackImageUri": "field", "fieldBackImageAlpha": "field", "ShowCoord": "grid",
+    "clGameBackground": "scene", "clFieldBorder": "border", "clFieldCoords": "grid", "clCursorLine": "scene", "clVirusOuterStroke": "virus", "clVirusInnerFill": "virus",
+    "clVirusRangeHint": "virus", "clBlueVirusOuterStroke": "virus", "clBlueVirusInnerFill": "virus", "clMotherCellOuterStroke": "virus", "clMotherCellInnerFill": "virus", "clMarkerA": "marker", "clMarkerB": "marker", "clMarkerC": "marker",
+    "clMarkerD": "marker", "clMarkerE": "marker", "clMarkerF": "marker", "clMarkerG": "marker", "clMarkerH": "marker", "clMarkerRing": "scene",
+    "clMarkerRing2": "scene", "clMarkerRing3": "scene", "clMarkerRing4": "scene", "clPellet": "scene", "clHalfMarker": "scene", "clSelfColor": "scene",
+    "clSelfColor2": "scene", "clChatBackground": "chat", "clChatTimeString": "chat", "clChatSenderName": "chat", "clChatMessage": "chat", "clMapBackground": "map", "clGameForeground": "map", "clReplayBar": "replay", "clUiSymbols": "replay", "clUiButtonActive": "replay", "clThemeBase": "hud", "clThemeText": "hud", "clThemeAccent": "hud", "clSelfColor3": "second", "clSelfColor4": "second", "clMiniMapBorder": "map", "clMiniMapCoords": "map", "clMiniMapBorderColor1": "map", "clMiniMapBorderColor2": "map", "clMiniMapBorderColor3": "map", "clMiniMapBorderColor4": "map", "clMiniMapBorderColor5": "map", "clMiniMapBorderColor6": "map", "clMiniMapBorderColor7": "map", "clMiniMapBorderColor8": "map", "clLeaderboardBack": "rail", "clLeaderboardHeader": "rail", "clBorderColor1": "border", "clBorderColor2": "border", "clBorderColor3": "border",
+    "clBorderColor4": "border", "clBorderColor5": "border", "clBorderColor6": "border", "clBorderColor7": "border", "clBorderColor8": "border", "animInterval": "border"
+  },
+  "previewOverrides": {
+    "AniBorder": { "clBorderColor1": 4294918208, "clBorderColor2": 4294955072, "clBorderColor3": 4282449760, "clBorderColor4": 4282433791, "clBorderColor5": 4284498175, "clBorderColor6": 4294918336, "clBorderColor7": 4294934560, "clBorderColor8": 4282449888 },
+    "AniVirus": { "clBorderColor1": 4294918208, "clBorderColor2": 4294955072, "clBorderColor3": 4282449760, "clBorderColor4": 4282433791, "clBorderColor5": 4284498175, "clBorderColor6": 4294918336, "clBorderColor7": 4294934560, "clBorderColor8": 4282449888 },
+    "AniHalfSplit": { "ShowHalfSplit": true, "clBorderColor1": 4294918208, "clBorderColor2": 4294955072, "clBorderColor3": 4282449760, "clBorderColor4": 4282433791, "clBorderColor5": 4284498175, "clBorderColor6": 4294918336, "clBorderColor7": 4294934560, "clBorderColor8": 4282449888 },
+    "animInterval": { "AniBorder": true, "clBorderColor1": 4294918208, "clBorderColor2": 4294955072, "clBorderColor3": 4282449760, "clBorderColor4": 4282433791, "clBorderColor5": 4284498175, "clBorderColor6": 4294918336, "clBorderColor7": 4294934560, "clBorderColor8": 4282449888 },
+    "MarkerAlpha": { "ShowMassMarker": true },
+    "MarkerThickness": { "ShowMassMarker": true },
+    "MarkerExtend": { "ShowMassMarker": true },
+    "MarkerLight": { "ShowMassMarker": true },
+    "OverlapMarkerMask": { "OverlapMarker": 2 },
+    "clMarkerA": { "ShowMassMarker": true, "MarkerExtend": true },
+    "clMarkerB": { "ShowMassMarker": true, "MarkerExtend": true },
+    "clMarkerC": { "ShowMassMarker": true, "MarkerExtend": true },
+    "clMarkerD": { "ShowMassMarker": true, "MarkerExtend": true },
+    "clMarkerE": { "ShowMassMarker": true, "MarkerExtend": true },
+    "clMarkerF": { "ShowMassMarker": true, "MarkerExtend": true },
+    "clMarkerG": { "ShowMassMarker": true, "MarkerExtend": true },
+    "clMarkerH": { "ShowMassMarker": true, "MarkerExtend": true },
+    "clMarkerRing": { "ShowOrderRing2": true },
+    "clMarkerRing2": { "ShowOrderRing2": true },
+    "clMarkerRing3": { "ShowOrderRing3": true },
+    "clMarkerRing4": { "ShowOrderRing3": true },
+    "CursorLineThickness": { "ShowCursorLine": true },
+    "clCursorLine": { "ShowCursorLine": true },
+    "PelletCellsAlpha": { "ShowPellet": true },
+    "SinglePelletsColor": { "ShowPellet": true },
+    "clPellet": { "ShowPellet": true, "SinglePelletsColor": true },
+    "PlayerCellsAlpha": { "TogglePlayerTransparentCells": true },
+    "clHalfMarker": { "ShowHalfSplit": true },
+    "clSelfColor": { "ShowClSelfCell": true },
+    "clSelfColor2": { "ShowClSelfCell": true },
+    "clSelfColor3": { "ShowClSelfCell": true },
+    "clSelfColor4": { "ShowClSelfCell": true },
+    "clVirusRangeHint": { "VirusRangeHint": true },
+    "clBorderColor1": { "AniBorder": true },
+    "clBorderColor2": { "AniBorder": true },
+    "clBorderColor3": { "AniBorder": true },
+    "clBorderColor4": { "AniBorder": true },
+    "clBorderColor5": { "AniBorder": true },
+    "clBorderColor6": { "AniBorder": true },
+    "clBorderColor7": { "AniBorder": true },
+    "clBorderColor8": { "AniBorder": true }
+  },
+  "addedDefaults": { "UiFont": "", "CellFont": "", "CellShadow": false, "CellShadowIntensity": 15, "VideoExportHeight": 1, "VideoExportFps": 1, "VideoExportQuality": 3, "ChatMaxMessages": 50, "ChatMentionNotify": true, "HudLayout": "", "TogglePlayerTransparentCells": true, "MiniMapDrawMode": 0, "QuickChat1": "", "QuickChat2": "", "QuickChat3": "", "QuickChat4": "", "QuickChat5": "", "QuickChat6": "", "QuickChat7": "", "QuickChat8": "", "QuickChat9": "", "QuickChat10": "", "ogarThemes": true, "ogarLanguagePacks": true, "CursorStyle": 0, "CursorImageUri": "", "MiniMapNameZoom": 100, "MiniMapNameTeamColor": true, "MiniMapShowCoord": true, "MiniMapGlowingBorder": true, "MiniMapAniBorder": false, "MiniMapBorderSize": 100, "MiniMapAnimInterval": 5, "ShowSelfPanel": true, "AutoReconnect": true, "ReconnectInterval": 5, "ReconnectDoubling": true, "ReconnectTries": 4, "MiniMapShowSelfName": false, "MiniMapShowView": true, "MiniMapShowCrosshair": true, "MiniMapOpaque": false, "ReplayBuffer": true }
+}
