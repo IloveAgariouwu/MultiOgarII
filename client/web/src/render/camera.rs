@@ -352,9 +352,13 @@ impl Sight {
     }
 
     fn follow_replay(&mut self, world: &World, r: ReplayCamera) {
-        if let Some(s) = r.scale {
-            self.target_scale = s;
-        }
+        let scale_keep = match r.scale {
+            Some(s) => {
+                self.target_scale = s;
+                REPLAY_KEEP
+            }
+            None => SCALE_KEEP,
+        };
         if self.exact || !self.placed {
             self.x = r.x;
             self.y = r.y;
@@ -366,7 +370,7 @@ impl Sight {
         self.scale = if self.exact {
             self.target_scale
         } else {
-            smooth_toward(self.scale, self.target_scale, REPLAY_KEEP)
+            smooth_toward(self.scale, self.target_scale, scale_keep)
         };
         let b = world.border();
         if b.is_valid() {
