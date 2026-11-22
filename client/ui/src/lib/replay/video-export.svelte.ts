@@ -49,12 +49,7 @@ class ReelCanvas {
     async frame(id: number, ms: number, base: number, settle: boolean): Promise<void> {
         const draw = () => {
             const shot = this.app.replay.exportSeek(id, ms, this.world, base + ms);
-            if (shot)
-                this.renderer.setReplayCamera(
-                    shot.eyeX,
-                    shot.eyeY,
-                    this.app.flag("AffectZoomingOnReplay") ? shot.scale : undefined,
-                );
+            if (shot) this.renderer.setReplayCamera(shot.eyeX, shot.eyeY, shot.scale);
             else this.renderer.clearReplayCamera();
             this.renderer.prepareFrame(base + ms, this.world, this.app.core.wasm);
             this.renderer.draw(this.world);
